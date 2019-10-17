@@ -28,8 +28,8 @@ execute_and_echo() {
 if [[ $make_return_value -eq 0 ]]; then
     # add sudo if we need to - and pass all arguments to the target
     if [[ $EUID -ne 0 ]]; then
-        execute_and_echo sudo ./dir_list "$@"
+        execute_and_echo sudo ./picapinterface "$@"
     else
-        execute_and_echo ./dir_list "$@"
+        execute_and_echo ./picapinterface "$@"
     fi
 fi
