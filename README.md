@@ -10,9 +10,11 @@ RTP-Midi out (all credit to RaveloxMidi)
 
 ## Requirements
 
-#* Requires [WiringPi](http://wiringpi.com/) (`apt-get install wiringpi`) ;
-#* Requires [Bare Conductive's MPR121 libary for WiringPi](https://github.com/BareConductive/wiringpi-mpr121);
-#* Requires [RaveloxMidi](https://github.com/ravelox/pimidi)('Follow Instructions to Setup');
+#* Requires [WiringPi](http://wiringpi.com/) (`apt-get install wiringpi`)
+
+#* Requires [Bare Conductive's MPR121 libary for WiringPi](https://github.com/BareConductive/wiringpi-mpr121)
+
+#* Requires [RaveloxMidi](https://github.com/ravelox/pimidi)('Follow Instructions to Setup')
 
 sudo apt-get install picap (after install don't forget to run "picap-setup");
 [see here for other instructions if it doesn't work](https://www.bareconductive.com/make/setting-up-pi-cap-raspberry-pi/);
