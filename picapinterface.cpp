@@ -7,9 +7,11 @@
 #include <dirent.h>
 #include <vector>
 #include <bits/stdc++.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <netinet/in.h>
+
+//#include <wiringpi.h>
+//#include <sys/socket.h>
+//#include <sys/types.h>
+//#include <netinet/in.h>
 //#include <netdb.h>
 
 bool volatile keepRunning=true;
@@ -164,20 +166,22 @@ int main(void) {
   cout << "No Samples:" << no_samples <<endl;
   cout << "No Loops:" << no_loops <<endl;
   
+  
   //find sensitivity
   if(no_sd>0)
   {
-  sample = "/media/pi/" + sd_list[0] + "/sense.txt";
+  sample = "/media/pi/" + sd_list[0] + "/CONF/sense.conf";
   ls = GetStdoutFromCommand(sample, false);
   }
-  else ls = GetStdoutFromCommand("sense.txt", false);
+  //else
+  ls = GetStdoutFromCommand("./CONF/sense.conf", false);
   sense = stoi(ls);
   cout << "Sensitivity: " << sense << endl;
   
-  ls = GetStdoutFromCommand("sudo raveloxmidi -c ./MIDI/raveloxmidi.conf", true);
+  /*ls = GetStdoutFromCommand("sudo raveloxmidi -c ./MIDI/raveloxmidi.conf", true);
   debug(ls);
   ls = GetStdoutFromCommand("./MIDI/note_send.py 144", true);
-  debug(ls);
+  debug(ls);*/
  
  /*
  int sockfd;
