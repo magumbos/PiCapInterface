@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# make sure we're cd-ed into the script directory
+cd "$(dirname "$(readlink -f "${BASH_SOURCE}")")" || exit
+
+# make (& grab the return value)
+make --quiet
+make_return_value=$?
+
+# put back any of the quotes that BASH removed
+# so we can show the user what we're running underneath
+execute_and_echo() {
+    args=''
+    whitespace="[[:space:]]"
+    for i in "$@"
+    do
+        if [[ $i =~ $whitespace ]]
+        then
+            i=\"$i\"
+        fi
+        args+="$i ";
+    done
+    echo "\$ $args"
+    bash -c "$args"
+}
+
+# only run the code if make succeeded
+if [[ $make_return_value -eq 0 ]]; then
+    # add sudo if we need to - and pass all arguments to the target
+    if [[ $EUID -ne 0 ]]; then
+        execute_and_echo sudo ./dir_list "$@"
+    else
+        execute_and_echo ./dir_list "$@"
+    fi
+fi
