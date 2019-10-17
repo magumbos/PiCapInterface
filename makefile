@@ -13,7 +13,7 @@ OBJS    = ${SRCS:.cpp=.o}
 LDFLAGS = -L/usr/local/lib
 LDLIBS  = 
 
-NAME    = dir_list
+NAME    = picapinterface
 
 SRC     = $(NAME).cpp
 BIN     = $(NAME:.cpp=)
